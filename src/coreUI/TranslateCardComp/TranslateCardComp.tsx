@@ -19,7 +19,7 @@ const TranslateCardComp = ({ id, originText,style={} }: Props) => {
           Id: {id.slice(-10,-6)}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          {originText}
+          {originText.slice(0,10)}
         </Typography>
       </CardContent>
     </Card>
