@@ -5,7 +5,7 @@
 - Typescript => for type check
 - Material UI => for ui design
 - Redux => for global state managment
-- i18n => for translation
+- i18n => for Multi language 
 
 ## How to use
 

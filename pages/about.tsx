@@ -25,8 +25,8 @@ const About = (props: Props) => {
         </Typography>
       </Grid>
       <Grid item xs={7} >
-        <Paper elevation={3} sx={{padding:'1em'}}>
-          <Typography variant="subtitle2" gutterBottom>
+        <Paper elevation={3} sx={{padding:'1em',textAlign: 'justify'}}>
+          <Typography variant="subtitle2" gutterBottom >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi et
             est sed felis feugiat accumsan. Ut odio elit, luctus porttitor augue
             eu, auctor sollicitudin massa. Quisque at nunc arcu. Sed mollis

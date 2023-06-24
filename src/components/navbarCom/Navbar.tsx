@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
 import { AppContext } from "../../../pages/_app";
@@ -67,20 +66,20 @@ function Navbar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page.title} onClick={handleCloseNavMenu}>
-                  <Typography
-                    textAlign="center"
-                    sx={{ textTransform: "capitalize" }}
+                  <Link
+                    href={page.url}
+                    style={{
+                      textDecoration: "auto",
+                      color: theme.palette.secondary.main,
+                    }}
                   >
-                    <Link
-                      href={page.url}
-                      style={{
-                        textDecoration: "auto",
-                        color: theme.palette.secondary.main,
-                      }}
+                    <Typography
+                      textAlign="center"
+                      sx={{ textTransform: "capitalize" }}
                     >
                       {page.title}
-                    </Link>
-                  </Typography>
+                    </Typography>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -88,23 +87,20 @@ function Navbar() {
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
+              <Link
+                href={page.url}
                 key={page.title}
-                onClick={handleCloseNavMenu}
-                sx={{
-                  my: 2,
-                  color: "white",
+                style={{
+                  textDecoration: "auto",
+                  color: theme.palette.secondary.main,
                   display: "block",
                   textTransform: "capitalize",
+                  padding:'10px'
                 }}
+                onClick={handleCloseNavMenu}
               >
-                <Link href={page.url} 
-                 style={{
-                    textDecoration: "auto",
-                    color: theme.palette.secondary.main,
-                  }}
-                >{page.title}</Link>
-              </Button>
+                {page.title}
+              </Link>
             ))}
           </Box>
         </Toolbar>
