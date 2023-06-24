@@ -2,9 +2,6 @@
   "name": "summa-ai",
   "version": "5.0.0",
   "private": true,
-  "engines": {
-    "node": "16.14.2"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
