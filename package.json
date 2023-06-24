@@ -14,9 +14,11 @@
     "@emotion/react": "^11.11.1",
     "@emotion/server": "latest",
     "@emotion/styled": "^11.11.0",
+    "@mui/base": "^5.0.0-beta.5",
     "@mui/icons-material": "latest",
     "@mui/material": "latest",
     "axios": "^1.4.0",
+    "lodash": "^4.17.21",
     "next": "latest",
     "next-i18next": "^14.0.0",
     "react": "latest",
@@ -27,6 +29,7 @@
     "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.195",
     "@types/node": "latest",
     "@types/react": "latest",
     "eslint": "latest",

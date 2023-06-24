@@ -1,13 +1,21 @@
 import Container from "@mui/material/Container";
-import { useTranslation } from 'next-i18next'
+// import Grid from "@mui/material/Grid";
+// import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import TranslateWrapper from "../src/components/indexComp/TranslateWrapper";
+import { useEffect } from "react";
+import translationText from "../src/components/indexComp/fixedData";
+import ListTranslateView from "../src/components/indexComp/ListTranslateView";
 
 export default function Home() {
-    const { t } = useTranslation()
+   useEffect(() => {
+    localStorage.setItem('historyTrans',`${JSON.stringify(translationText)}`)
+   },[])
+
   return (
     <Container maxWidth="xl">
-      <div>Main pages</div>
-      <div>{t("test")}</div>
+      <TranslateWrapper/>
+      <ListTranslateView/>
     </Container>
   );
 }
