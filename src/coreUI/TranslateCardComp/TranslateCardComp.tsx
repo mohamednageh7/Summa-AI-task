@@ -1,23 +1,22 @@
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import React from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 
 type Props = {
-    id:number;
-    originText:string
+  id: string;
+  originText: string;
+  style?:object
 };
 
-const TranslateCardComp = ({id,originText}: Props) => {
+const TranslateCardComp = ({ id, originText,style={} }: Props) => {
+    
   return (
-    <Card>
+    <Card
+      sx={style}
+    >
       <CardContent>
         <Typography variant="h5" component="div">
-          Id: {id}
+          Id: {id.slice(-10,-6)}
         </Typography>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           {originText}

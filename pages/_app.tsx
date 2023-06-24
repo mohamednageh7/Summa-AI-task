@@ -11,14 +11,13 @@ import Head from "next/head";
 import "../src/styles/global.scss";
 import Navbar from "../src/components/navbarCom/Navbar";
 
-export const AppContext = createContext<any>([]);
+export const AppContext = createContext<any>({});
 
 const MyApp = (props: AppProps) => {
   const { Component, pageProps } = props;
   const [mode, setMode] = useState<PaletteMode>("light");
   const [direction, setDirection] = useState<Direction>("ltr");
 
-  //   const { t } = useTranslation();
   const theme: any = useMemo(
     () => createTheme(themeConfig(mode, direction)),
     [mode, direction]

@@ -9,13 +9,20 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import Link from "next/link";
+import { AppContext } from "../../../pages/_app";
+import { useContext } from "react";
 
-const pages = ["New Translaiton", "About"];
+const pages: { title: string; url: string }[] = [
+  { title: "New Translaiton", url: "/" },
+  { title: "About", url: "/about" },
+];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
+  const { theme } = useContext(AppContext);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -59,8 +66,21 @@ function Navbar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"  sx={{ textTransform: "capitalize" }}>{page}</Typography>
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Typography
+                    textAlign="center"
+                    sx={{ textTransform: "capitalize" }}
+                  >
+                    <Link
+                      href={page.url}
+                      style={{
+                        textDecoration: "auto",
+                        color: theme.palette.secondary.main,
+                      }}
+                    >
+                      {page.title}
+                    </Link>
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -69,11 +89,21 @@ function Navbar() {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
-                key={page}
+                key={page.title}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block",textTransform: "capitalize" }}
+                sx={{
+                  my: 2,
+                  color: "white",
+                  display: "block",
+                  textTransform: "capitalize",
+                }}
               >
-                {page}
+                <Link href={page.url} 
+                 style={{
+                    textDecoration: "auto",
+                    color: theme.palette.secondary.main,
+                  }}
+                >{page.title}</Link>
               </Button>
             ))}
           </Box>
